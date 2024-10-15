@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/i4.png'); /* Corrected path */
+            background-size: cover;
+            background-position: center;
+		    background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            margin-top: 80px; /* Adjusted for navbar height */
+            width: 90%;
+            max-width: 1200px;
+        }
+        .job-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .job-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .job-card h3 {
+            margin-top: 0;
+        }
+        .job-card p {
+            margin: 10px 0;
+        }
+        .view-details, .user-details {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2196F3;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .view-details:hover, .user-details:hover {
+            background-color: #1976D2;
+        }
+        .vacancies {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar" id="navbar-placeholder"></div>
+
+    <div class="container">
+        <div class="job-cards" id="job-cards-container">
+            <div class="job-card">
+                <h3>Software Developer</h3>
+                <p>Develop and maintain web applications.</p>
+                <a href="jobDetails.html?jobId=software-developer" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 3</div>
+            </div>
+            <div class="job-card">
+                <h3>Project Manager</h3>
+                <p>Manage project timelines and deliverables.</p>
+                <a href="jobDetails.html?jobId=project-manager" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 2</div>
+            </div>
+            <div class="job-card">
+                <h3>QA Engineer</h3>
+                <p>Ensure the quality of software products.</p>
+                <a href="jobDetails.html?jobId=qa-engineer" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 4</div>
+            </div>
+            <div class="job-card">
+                <h3>Web Developer</h3>
+                <p>Develop the website.</p>
+                <a href="jobDetails.html?jobId=web-developer" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 5</div>
+            </div>
+            <div class="job-card">
+                <h3>Data Scientist</h3>
+                <p>Analyze and interpret complex data to help organizations make decisions.</p>
+                <a href="jobDetails.html?jobId=data-scientist" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 2</div>
+            </div>
+            <div class="job-card">
+                <h3>UX Designer</h3>
+                <p>Design user interfaces and improve user experiences.</p>
+                <a href="jobDetails.html?jobId=ux-designer" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 3</div>
+            </div>
+            <div class="job-card">
+                <h3>Product Manager</h3>
+                <p>Manage the lifecycle of a product from concept to launch.</p>
+                <a href="jobDetails.html?jobId=product-manager" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 1</div>
+            </div>
+            <div class="job-card">
+                <h3>Marketing Specialist</h3>
+                <p>Develop and execute marketing strategies to drive brand awareness.</p>
+                <a href="jobDetails.html?jobId=marketing-specialist" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 2</div>
+            </div>
+            <div class="job-card">
+                <h3>Graphic Designer</h3>
+                <p>Create visual content for print and digital media.</p>
+                <a href="jobDetails.html?jobId=graphic-designer" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 4</div>
+            </div>
+            <div class="job-card">
+                <h3>System Administrator</h3>
+                <p>Manage and maintain IT systems and infrastructure.</p>
+                <a href="jobDetails.html?jobId=system-administrator" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 3</div>
+            </div>
+            <div class="job-card">
+                <h3>Content Writer</h3>
+                <p>Create written content for websites, blogs, and marketing materials.</p>
+                <a href="jobDetails.html?jobId=content-writer" class="view-details">View Details</a>
+                <a href="jobApplicants.jsp" class="user-details">User Details</a>
+                <div class="vacancies">Vacancies: 2</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNavbar);
+    </script>
+</body>
+</html>

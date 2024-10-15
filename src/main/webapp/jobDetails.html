@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .back-link, .apply-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover, .apply-button:hover {
+            background-color: #1976D2;
+        }
+        .share-buttons {
+            margin-top: 20px;
+        }
+        .share-button {
+            margin-right: 10px;
+            background-color: #e7e7e7;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .share-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="job-details-container">
+        <!-- Job details will be loaded here -->
+    </div>
+    <div class="share-buttons">
+        <button class="share-button" onclick="shareJob('linkedin')">Share on LinkedIn</button>
+        <button class="share-button" onclick="shareJob('twitter')">Share on Twitter</button>
+        <button class="share-button" onclick="shareJob('facebook')">Share on Facebook</button>
+    </div>
+    <a href="UserLogin.html" class="back-link">Back to Jobs</a>
+    <a href="applicationForm.html" class="apply-button">Apply Now</a>
+
+    <script>
+        const jobDetails = {
+            'software-developer': {
+                title: 'Software Developer',
+                description: 'Develop and maintain web applications.',
+                responsibilities: [
+                    'Write clean, scalable code using .NET programming languages.',
+                    'Test and deploy applications and systems.',
+                    'Revise, update, refactor and debug code.',
+                    'Improve existing software.',
+                    'Develop documentation throughout the software development life cycle (SDLC).'
+                ],
+                requirements: [
+                    'Proven experience as a .NET Developer or Application Developer.',
+                    'Familiarity with the ASP.NET framework, SQL Server, and design/architectural patterns.',
+                    'Excellent troubleshooting and communication skills.'
+                ],
+                vacancies: 3
+            },
+            'project-manager': {
+                title: 'Project Manager',
+                description: 'Manage project timelines and deliverables.',
+                responsibilities: [
+                    'Coordinate internal resources and third parties/vendors for the flawless execution of projects.',
+                    'Ensure that all projects are delivered on-time, within scope and within budget.',
+                    'Develop a detailed project plan to track progress.',
+                    'Manage changes to the project scope, project schedule, and project costs using appropriate verification techniques.',
+                    'Measure project performance using appropriate tools and techniques.'
+                ],
+                requirements: [
+                    'Proven working experience in project management.',
+                    'Excellent client-facing and internal communication skills.',
+                    'Solid organizational skills including attention to detail and multitasking skills.',
+                    'Strong working knowledge of Microsoft Office.'
+                ],
+                vacancies: 2
+            },
+            'qa-engineer': {
+                title: 'QA Engineer',
+                description: 'Ensure the quality of software products.',
+                responsibilities: [
+                    'Review requirements, specifications, and technical design documents to provide timely and meaningful feedback.',
+                    'Create detailed, comprehensive, and well-structured test plans and test cases.',
+                    'Estimate, prioritize, plan, and coordinate testing activities.',
+                    'Design, develop and execute automation scripts using open-source tools.',
+                    'Identify, record, document thoroughly and track bugs.'
+                ],
+                requirements: [
+                    'Proven work experience in software quality assurance.',
+                    'Strong knowledge of software QA methodologies, tools, and processes.',
+                    'Experience in writing clear, concise, and comprehensive test plans and test cases.',
+                    'Hands-on experience with both white box and black box testing.'
+                ],
+                vacancies: 4
+            },
+            'web-developer': {
+                title: 'Web Developer',
+                description: 'Develop and maintain websites.',
+                responsibilities: [
+                    'Write well designed, testable, efficient code by using best software development practices.',
+                    'Create website layout/user interfaces by using standard HTML/CSS practices.',
+                    'Integrate data from various back-end services and databases.',
+                    'Gather and refine specifications and requirements based on technical needs.',
+                    'Create and maintain software documentation.'
+                ],
+                requirements: [
+                    'Proven working experience in web programming.',
+                    'Top-notch programming skills and in-depth knowledge of modern HTML/CSS.',
+                    'Familiarity with at least one of the following programming languages: PHP, ASP.NET, JavaScript or Ruby on Rails.',
+                    'A solid understanding of how web applications work including security, session management, and best development practices.'
+                ],
+                vacancies: 5
+            },
+            'data-scientist': {
+                title: 'Data Scientist',
+                description: 'Analyze and interpret complex data to help organizations make decisions.',
+                responsibilities: [
+                    'Identify valuable data sources and automate collection processes.',
+                    'Undertake preprocessing of structured and unstructured data.',
+                    'Analyze large amounts of information to discover trends and patterns.',
+                    'Build predictive models and machine-learning algorithms.',
+                    'Combine models through ensemble modeling.'
+                ],
+                requirements: [
+                    'Proven experience as a Data Scientist or Data Analyst.',
+                    'Experience in data mining.',
+                    'Understanding of machine-learning and operations research.',
+                    'Knowledge of R, SQL and Python; familiarity with Scala, Java or C++ is an asset.'
+                ],
+                vacancies: 2
+            },
+            'ux-designer': {
+                title: 'UX Designer',
+                description: 'Design user interfaces and improve user experiences.',
+                responsibilities: [
+                    'Understand product specifications and user psychology.',
+                    'Conduct concept and usability testing and gather feedback.',
+                    'Create personas through user research and data.',
+                    'Define the right interaction model and evaluate its success.',
+                    'Develop wireframes and prototypes around customer needs.'
+                ],
+                requirements: [
+                    'Proven experience as a UX Designer, UI Designer or similar role.',
+                    'Strong portfolio of design projects.',
+                    'Familiarity with interaction design and information architecture.',
+                    'Proficient in design software (e.g. UXPin, Balsamiq).'
+                ],
+                vacancies: 3
+            },
+            'product-manager': {
+                title: 'Product Manager',
+                description: 'Manage the lifecycle of a product from concept to launch.',
+                responsibilities: [
+                    'Gain a deep understanding of customer experience, identify and fill product gaps and generate new ideas that grow market share, improve customer experience and drive growth.',
+                    'Create buy-in for the product vision both internally and with key external partners.',
+                    'Develop product pricing and positioning strategies.',
+                    'Translate product strategy into detailed requirements and prototypes.',
+                    'Scope and prioritize activities based on business and customer impact.'
+                ],
+                requirements: [
+                    'Proven work experience in product management or as an associate product manager.',
+                    'Proven track record of managing all aspects of a successful product throughout its lifecycle.',
+                    'Proven ability to develop product and marketing strategies and effectively communicate recommendations to executive management.',
+                    'Solid technical background with understanding and/or hands-on experience in software development and web technologies.'
+                ],
+                vacancies: 1
+            },
+            'marketing-specialist': {
+                title: 'Marketing Specialist',
+                description: 'Develop and execute marketing strategies to drive brand awareness.',
+                responsibilities: [
+                    'Conduct market research to find answers about consumer requirements, habits, and trends.',
+                    'Brainstorm and develop ideas for creative marketing campaigns.',
+                    'Assist in outbound or inbound marketing activities by demonstrating expertise in various areas (content development and optimization, advertising, events planning, etc.).',
+                    'Liaise with external vendors to execute promotional events and campaigns.',
+                    'Collaborate with marketing and other professionals to coordinate brand awareness and marketing efforts.'
+                ],
+                requirements: [
+                    'Proven experience as a marketing specialist or similar role.',
+                    'Thorough understanding of marketing elements (including traditional and digital marketing such as SEO/social media etc.) and market research methods.',
+                    'Demonstrable experience in marketing data analytics and tools.',
+                    'Solid computer skills, including MS Office, marketing software (Adobe Creative Suite & CRM), and applications (Web analytics, Google Adwords, etc.).'
+                ],
+                vacancies: 2
+            },
+            'graphic-designer': {
+                title: 'Graphic Designer',
+                description: 'Create visual content for print and digital media.',
+                responsibilities: [
+                    'Conceptualize visuals based on requirements.',
+                    'Create images and layouts by hand or using design software.',
+                    'Test graphics across various media.',
+                    'Amend designs after feedback.',
+                    'Ensure final graphics and layouts are visually appealing and on-brand.'
+                ],
+                requirements: [
+                    'Proven graphic designing experience.',
+                    'A strong portfolio of illustrations or other graphics.',
+                    'Familiarity with design software and technologies (such as InDesign, Illustrator, Dreamweaver, Photoshop).',
+                    'A keen eye for aesthetics and details.',
+                    'Excellent communication skills.'
+                ],
+                vacancies: 4
+            },
+            'system-administrator': {
+                title: 'System Administrator',
+                description: 'Manage and maintain IT systems and infrastructure.',
+                responsibilities: [
+                    'Install and configure software and hardware.',
+                    'Manage network servers and technology tools.',
+                    'Set up accounts and workstations.',
+                    'Monitor performance and maintain systems according to requirements.',
+                    'Troubleshoot issues and outages.'
+                ],
+                requirements: [
+                    'Proven experience as a System Administrator, Network Administrator or similar role.',
+                    'Experience with databases, networks (LAN, WAN), and patch management.',
+                    'Knowledge of system security (e.g. intrusion detection systems) and data backup/recovery.',
+                    'Ability to create scripts in Python, Perl or other language.',
+                    'Familiarity with various operating systems and platforms.'
+                ],
+                vacancies: 3
+            },
+            'content-writer': {
+                title: 'Content Writer',
+                description: 'Create written content for websites, blogs, and marketing materials.',
+                responsibilities: [
+                    'Produce well-researched content for publication online and in print.',
+                    'Organize writing schedules to complete drafts of content or finished projects within deadlines.',
+                    'Utilize industry best practices and familiarity with the organization\'s mission to inspire ideas and content.',
+                    'Communicate and cooperate with a writing team, including a content manager, editors, and web publishers.',
+                    'Follow an editorial calendar, collaborating with other members of the content production team to ensure timely delivery of materials.'
+                ],
+                requirements: [
+                    'Proven record of excellent writing demonstrated in a professional portfolio.',
+                    'Impeccable grasp of the English language, including idioms and current trends in slang and expressions.',
+                    'Ability to work independently with little or no daily supervision.',
+                    'Strong interpersonal skills and willingness to communicate with clients, colleagues, and management.',
+                    'Ability to work on multiple projects with different objectives simultaneously.'
+                ],
+                vacancies: 2
+            }
+        };
+
+        function getJobIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('jobId');
+        }
+
+        function loadJobDetails() {
+            const jobId = getJobIdFromUrl();
+            if (jobId && jobDetails[jobId]) {
+                const job = jobDetails[jobId];
+                const container = document.getElementById('job-details-container');
+                container.innerHTML = `
+                    <h1>${job.title}</h1>
+                    <p>${job.description}</p>
+                    <h2>Responsibilities</h2>
+                    <ul>${job.responsibilities.map(responsibility => `<li>${responsibility}</li>`).join('')}</ul>
+                    <h2>Requirements</h2>
+                    <ul>${job.requirements.map(requirement => `<li>${requirement}</li>`).join('')}</ul>
+                    <div class="vacancies">Vacancies: ${job.vacancies}</div>
+                `;
+            } else {
+                document.getElementById('job-details-container').innerHTML = '<p>Job details not found.</p>';
+            }
+        }
+
+        function shareJob(platform) {
+            const jobId = getJobIdFromUrl();
+            if (jobId) {
+                const job = jobDetails[jobId];
+                let shareUrl = '';
+                const jobTitle = encodeURIComponent(job.title);
+
+                switch (platform) {
+                    case 'linkedin':
+                        shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${jobTitle}`;
+                        break;
+                    case 'twitter':
+                        shareUrl = `https://twitter.com/intent/tweet?text=${jobTitle}&url=${encodeURIComponent(window.location.href)}`;
+                        break;
+                    case 'facebook':
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+                        break;
+                }
+
+                window.open(shareUrl, '_blank');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadJobDetails);
+    </script>
+</body>
+</html>

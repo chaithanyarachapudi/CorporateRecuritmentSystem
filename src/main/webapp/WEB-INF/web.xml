@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>add_jobDb</servlet-name>
+  	<display-name>add_jobDb</display-name>
+  	<description></description>
+  	<servlet-class>com.Controller.add_jobDb</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserService</servlet-name>
+  	<display-name>UserService</display-name>
+  	<description></description>
+  	<servlet-class>com.Controller.UserService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>add_jobDb</servlet-name>
+  	<url-pattern>/add_jobDb</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserService</servlet-name>
+  	<url-pattern>/UserService</url-pattern>
+  </servlet-mapping>
+</web-app>

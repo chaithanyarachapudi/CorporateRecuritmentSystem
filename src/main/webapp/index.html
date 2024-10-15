@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/i1.jpeg'); /* Corrected path */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .navbar {
+            width: 100%;
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            margin-top: 80px; /* Adjusted for navbar height */
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+        .button.signin {
+            background-color: #2196F3;
+        }
+        .button.signin:hover {
+            background-color: #1976D2;
+        }
+        .button.signup {
+            background-color: #4CAF50;
+        }
+        .button.signup:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar" id="navbar-placeholder"></div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+    <div class="container">
+        <h1>Welcome to Corporate Recruitment Management</h1>
+        <p>Please choose an option to continue:</p>
+        <a href="modSel.html" class="button signin">Sign In</a>
+        <a href="Signup.html" class="button signup">Sign Up</a>
+    </div>
+
+    <script>
+        function loadNavbar() {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading navbar:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNavbar);
+    </script>
+
+</body>
+</html>
